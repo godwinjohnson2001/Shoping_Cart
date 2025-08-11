@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public/product-images',express.static(__dirname + '/public/product-images'));
 //app.use(express.static('public'));
 
 app.use(fileUpload())

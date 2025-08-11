@@ -5,7 +5,11 @@ const productHelpers = require('../helpers/product-helpers');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-   let products = [
+  productHelpers.getAllProducts().then((products)=>{
+    console.log(products);
+    res.render('admin/view-products',{admin:true,products});
+  })
+   /*let products = [
     {
       name:"IPhone 16 Pro max",
       category:"mobile",
@@ -37,8 +41,8 @@ router.get('/', function(req, res, next) {
       description:"this is a phone with three cameras",
       image:""
     }
-  ]
-  res.render('admin/view-products',{admin:true,products});
+  ] */
+  
 });
 router.get('/add-product',function(req,res){
   res.render('admin/add-product')
